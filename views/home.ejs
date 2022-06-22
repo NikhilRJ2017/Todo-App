@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,60 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/home.css">
-    <title><%=title%></title>
-</head>
-<body>
 
-    
-    
+    <!-- Fontawesome script -->
+    <script src="https://kit.fontawesome.com/ba0ac440b4.js" crossorigin="anonymous"></script>
+
+    <title>
+        <%=title%>
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>TODO App</h1>
+        <div class="desc">
+            <p>DESCRIPTION</p>
+            <input type="text" placeholder="What do you need to do?">
+        </div>
+
+        <div class="category-date-div">
+            <div class="category">
+                <p>CATEGORY</p>
+                <select name="category-selector" id="category-select">
+                    <option value="">Choose a category</option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="college">College/School</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="due-date">
+                <p>DUE DATE</p>
+                <input type="date">
+            </div>
+        </div>
+
+        <div class="add-delete-btns-div">
+            <button class="add-btn"><span><i class="fa-solid fa-plus"></i></span>ADD TASK</button>
+            <button class="delete-btn"><span><i class="fa-solid fa-trash-can"></i></span>DELETE TASK</button>
+        </div>
+
+        <div class="total-tasks">Total tasks: <span>1111</span></div>
+        <div class="list-div">
+            <ul class="lists">
+
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- JQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Custom js -->
     <script src="/js/home.js"></script>
 </body>
+
 </html>

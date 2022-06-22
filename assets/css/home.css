@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Root */
+:root{
+    --generic-padding: 10;
+    --generic-font-size: 16;
+    --generic-font-weight: 600;
+    --generic-color: rgb(151, 147, 147);
+    --generic-border-color: rgb(88, 87, 87);
+    font-family: sans-serif;
+}
+
+/* body */
+body{
+    color: var(--generic-color);
+    background-color: aliceblue;
+}
+
+/* The whole todo app layout */
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border: 1px solid rgb(48, 48, 47);
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.container >*{
+    border-top: 1px solid var(--generic-border-color);
+}
+
+/* Heading */
+.container h1{
+    text-align: center;
+    margin-top: 10px;
+    border-top: none;
+}
+
+/* Description section */
+.desc{
+    padding: calc(var(--generic-padding) * 1px);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.desc p{
+    margin-bottom: 2px;
+    font-weight: var(--generic-font-weight);
+}
+.desc input{
+    border: 0;
+    outline: none;
+    background-color: inherit;
+    font-size: calc(var(--generic-font-size) * 1px);
+}
+
+/* Category and due date section */
+.category-date-div{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.category-date-div >*{
+    flex-basis: 50%;
+    padding: calc(var(--generic-padding) * 1px);
+    font-weight: var(--generic-font-weight);
+}
+
+.category-date-div input, select{
+    border: 0;
+    outline: none;
+    font-size: calc(var(--generic-font-size) * 1px);
+    color: var(--generic-color);
+    background-color: inherit;
+}
+
+.category-date-div p{
+    margin-bottom: 2px;
+}
+
+.due-date{
+    border-left: 1px solid var(--generic-border-color);
+}
+
+/* Add and delete buttons */
+.add-delete-btns-div{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.add-delete-btns-div button{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 175px;
+    height: 60px;
+    border: 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: calc((var(--generic-font-size) + 2) * 1px);
+    cursor: pointer;
+}
+
+.add-delete-btns-div button >*{
+    padding: 8px;
+}
+
+.add-delete-btns-div .add-btn{
+    background-color: rgb(48, 45, 45);
+    color: aliceblue;
+}
+.add-delete-btns-div .delete-btn{
+    background-color: rgb(252, 70, 70);
+    color: aliceblue;
+}
+
+.add-delete-btns-div span{
+    text-align: center;
+}
+
+/* todo lists */
+.list-div{
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+
+.list-div::-webkit-scrollbar{
+    display: none;
+}
+
+.list-div .lists li{
+    height: 60px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid var(--generic-border-color);
+    border-radius: 20px;
+}
+
+/* Total Tasks */
+.total-tasks{
+    text-align: right;
+    border: 0;
+    padding: 5px;
+}
