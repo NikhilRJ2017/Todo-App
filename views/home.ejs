@@ -22,7 +22,7 @@
         <h1>TODO App</h1>
         <div class="desc">
             <p>DESCRIPTION</p>
-            <input type="text" placeholder="What do you need to do?">
+            <input type="text" placeholder="What do you need to do?" id="task">
         </div>
 
         <div class="category-date-div">
@@ -30,16 +30,16 @@
                 <p>CATEGORY</p>
                 <select name="category-selector" id="category-select">
                     <option value="">Choose a category</option>
-                    <option value="personal">Personal</option>
-                    <option value="work">Work</option>
-                    <option value="college">College/School</option>
-                    <option value="other">Other</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="College">College/School</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
 
             <div class="due-date">
                 <p>DUE DATE</p>
-                <input type="date">
+                <input type="date" id="date">
             </div>
         </div>
 
@@ -48,9 +48,29 @@
             <button class="delete-btn"><span><i class="fa-solid fa-trash-can"></i></span>DELETE TASK</button>
         </div>
 
-        <div class="total-tasks">Total tasks: <span>1111</span></div>
+        <div class="total-tasks">Total tasks: <span id="total-tasks"></span></div>
         <div class="list-div">
             <ul class="lists">
+
+                <% task_lists.forEach(tasks=>{%>
+                    <li class="individual-task-li cat-<%=tasks.category%>-border">
+                        <input type="checkbox" name="checkbox">
+                        <div class="task-due-date-div">
+                            <p>
+                                <%=tasks.desc%>
+                            </p>
+                            <p><span><i class="fa-solid fa-calendar-days"></i></span>
+                                <%=tasks.due_date%>
+                            </p>
+                        </div>
+                        <div class="individual-task-category cat-<%=tasks.category%>">
+                            <p>
+                                <%=tasks.category%>
+                            </p>
+                        </div>
+                    </li>
+                    <% }) %>
+
 
             </ul>
         </div>

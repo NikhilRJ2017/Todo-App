@@ -11,13 +11,20 @@
     --generic-font-weight: 600;
     --generic-color: rgb(151, 147, 147);
     --generic-border-color: rgb(88, 87, 87);
+
+    /* Category wise color combos */
+    --personal: coral;
+    --work: mediumaquamarine;
+    --college: orchid;
+    --other: darkolivegreen;
+
     font-family: sans-serif;
 }
 
 /* body */
 body{
     color: var(--generic-color);
-    background-color: aliceblue;
+    background-color: rgb(248, 232, 203);
 }
 
 /* The whole todo app layout */
@@ -27,9 +34,11 @@ body{
     width: 600px;
     height: 600px;
     margin: auto;
-    border: 1px solid rgb(48, 48, 47);
+    border: 3px solid rgb(48, 48, 47);
     border-radius: 10px;
     margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
 }
 
 .container >*{
@@ -54,6 +63,7 @@ body{
     font-weight: var(--generic-font-weight);
 }
 .desc input{
+    width: 100%;
     border: 0;
     outline: none;
     background-color: inherit;
@@ -126,6 +136,13 @@ body{
     color: aliceblue;
 }
 
+.add-delete-btns-div .add-btn:hover{
+    box-shadow: 0px 0px 10px 10px lightgray;
+}
+.add-delete-btns-div .delete-btn:hover{
+    box-shadow: 0px 0px 10px 10px lightgray;
+}
+
 .add-delete-btns-div span{
     text-align: center;
 }
@@ -147,7 +164,6 @@ body{
     height: 60px;
     padding: 10px;
     margin: 5px;
-    border: 1px solid var(--generic-border-color);
     border-radius: 20px;
 }
 
@@ -156,4 +172,91 @@ body{
     text-align: right;
     border: 0;
     padding: 5px;
+}
+
+
+/* Individual Tasks li */
+
+.individual-task-li{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    width: inherit;
+}
+
+.individual-task-li >*{
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    align-self: center;
+}
+
+.individual-task-li input{
+    align-self: flex-start;
+    margin-top: 3px;
+}
+.individual-task-li .task-due-date-div{
+    width: 70%;
+}
+
+.individual-task-li .task-due-date-div p:first-child{
+    overflow: scroll;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.individual-task-li .task-due-date-div p:first-child::-webkit-scrollbar{
+    display: none;
+}
+.individual-task-li .task-due-date-div p:last-child{
+    font-size: 14px;
+    margin-left: 4px;
+    
+}
+.individual-task-li .task-due-date-div p span{
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.individual-task-li .individual-task-category{
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+    color: aliceblue;
+}
+.individual-task-li .individual-task-category p{
+    padding: 5px;
+}
+
+.cat-Personal{
+    background-color: var(--personal);
+}
+
+.cat-Personal-border{
+    border: 2px solid var(--personal);
+}
+
+.cat-Work{
+    background-color: var(--work);
+}
+
+.cat-Work-border{
+    border: 2px solid var(--work);
+}
+
+.cat-College{
+    background-color: var(--college);
+}
+
+.cat-College-border{
+    border: 2px solid var(--college);
+}
+
+.cat-Other{
+    background-color: var(--other);
+    
+}
+
+.cat-Other-border{
+    border: 2px solid var(--other);
 }
