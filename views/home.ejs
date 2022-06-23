@@ -54,7 +54,7 @@
 
                 <% task_lists.forEach(tasks=>{%>
                     <li class="individual-task-li cat-<%=tasks.category%>-border">
-                        <input type="checkbox" name="checkbox">
+                        <input type="checkbox" name="checkbox" data-id="<%=tasks._id%>">
                         <div class="task-due-date-div">
                             <p>
                                 <%=tasks.desc%>
@@ -70,7 +70,6 @@
                         </div>
                     </li>
                     <% }) %>
-
 
             </ul>
         </div>

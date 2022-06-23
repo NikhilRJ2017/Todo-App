@@ -38,15 +38,44 @@
             }
         });
     });
-
+    // data-id="<%=tasks._id%>"
     deleteBtn.click(function (e) {
 
+        let selectedIds = getSelectedIds();
 
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8000/delete_task",
+            data: { selectedIds: selectedIds },
+            success: function (response) {
+                if (response) {
+                    document.location.href = 'http://localhost:8000';
+                }
+            }
+        });
 
     });
 
     function showNotification(message) {
         alert(message)
+    }
+
+    function getSelectedIds() {
+        let selectedIds = [];
+        $('input:checkbox').each(function () {
+
+            let curr = $(this);
+            if (curr.is(":checked")) {
+                selectedIds.push(curr.data('id'));
+            }
+        });
+
+        return selectedIds;
+
+    }
+
+    function getCurrTotalTask(){
+        
     }
 })();
 
