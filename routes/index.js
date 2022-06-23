@@ -1,3 +1,6 @@
+/**
+ * Root route: All the requests are sent through this file
+ */
 const express = require('express');
 const router = express.Router();
 const homeControllers = require('../controllers/home_controller');

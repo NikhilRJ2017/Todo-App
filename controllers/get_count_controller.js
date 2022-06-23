@@ -1,7 +1,9 @@
+//acquring the Todo model
 const Todo = require('../models/todo');
 
 module.exports.getCount = function(req, res){
 
+    //collecting total entries in db
     Todo.countDocuments({}, function(err, count){
 
         if(err){

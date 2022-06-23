@@ -1,7 +1,9 @@
+//acquring the Todo model
 const Todo = require('../models/todo');
 
 module.exports.home = function (req, res) {
 
+    //Retrieving all the tasks present in db
     Todo.find({}, function (err, newTask) {
         if (err) {
             console.log('Error in fetching task from DB');
@@ -13,6 +15,7 @@ module.exports.home = function (req, res) {
             tasks.due_date = myDate.toDateString();
         });
             
+        //render the view
         return res.render('home', {
             title: "Todo App",
             task_lists: newTask

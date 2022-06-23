@@ -1,6 +1,8 @@
+//acquring the Todo model
 const Todo = require('../models/todo');
 
 module.exports.createTask = function (req, res) {
+    //creating a task
     Todo.create({
         desc: req.body.task,
         category: req.body.category,
