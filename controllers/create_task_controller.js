@@ -9,11 +9,10 @@ module.exports.createTask = function (req, res) {
 
         if (err) {
             console.log("Error in creating task");
-            return res.send('err');
+            return res.send('Error in creating task');
         }
 
         return res.redirect(200, '/');
-       
     });
 
 };

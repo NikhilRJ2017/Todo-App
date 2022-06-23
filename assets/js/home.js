@@ -9,12 +9,15 @@
         const task = $('#task');
         let taskVal = task.val();
 
-
         const category = $('#category-select');
         let categoryVal = category.val();
 
         const date = $('#date');
         let dateVal = date.val();
+
+        if(taskVal === '' || dateVal === '' || categoryVal === ''){
+            showNotification("Please fill all the details");
+        }
 
         let jsonData = {
             task: taskVal,
@@ -27,32 +30,35 @@
             url: "http://localhost:8000/create_task",
             data: jsonData,
             success: function (response) {
-                console.log(response);
-                if (response === 'err') {
-                    showNotification("Please enter all the details");
-                    return;
-                }
                 if (response) {
                     document.location.href = 'http://localhost:8000';
+                    return;
                 }
             }
         });
     });
-    // data-id="<%=tasks._id%>"
+
+
     deleteBtn.click(function (e) {
 
         let selectedIds = getSelectedIds();
 
-        $.ajax({
-            type: "DELETE",
-            url: "http://localhost:8000/delete_task",
-            data: { selectedIds: selectedIds },
-            success: function (response) {
-                if (response) {
-                    document.location.href = 'http://localhost:8000';
+        if(selectedIds.length !== 0){
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8000/delete_task",
+                data: { selectedIds: selectedIds },
+                success: function (response) {
+                    if (response) {
+                        document.location.href = 'http://localhost:8000';
+                        return;
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            showNotification("Please select the task/s to delete");
+        }
+        
 
     });
 
@@ -74,8 +80,29 @@
 
     }
 
-    function getCurrTotalTask(){
-        
+    function getCurrTotalTask() {
+        let taskCount;
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8000/get_count",
+            success: function (response) {
+                taskCount = response;
+                totalTask.text(taskCount);
+
+                if (taskCount === '0') {
+                    deleteBtn.css({
+                        'opacity': '0.5',
+                        'pointer-events': 'none'
+                    })
+                }
+            }
+        });
+
+        return taskCount;
     }
+
+    getCurrTotalTask();
+
+
 })();
 

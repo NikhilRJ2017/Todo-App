@@ -5,7 +5,7 @@ module.exports.home = function (req, res) {
     Todo.find({}, function (err, newTask) {
         if (err) {
             console.log('Error in fetching task from DB');
-            return;
+            return res.send("Error in fetching task from DB");
         }
 
         newTask.forEach(tasks=>{

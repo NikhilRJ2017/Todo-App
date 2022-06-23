@@ -13,6 +13,8 @@ app.use(express.static('assets'));
 
 app.use('/', require('./routes/index'));
 
+
+
 app.listen(PORT, function (err) {  
     if(err){
         console.log("Error in connecting to the server");

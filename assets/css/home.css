@@ -24,7 +24,7 @@
 /* body */
 body{
     color: var(--generic-color);
-    background-color: cornflowerblue;
+    background-color: rgb(161, 190, 243);
 }
 
 /* The whole todo app layout */
@@ -138,10 +138,10 @@ body{
 }
 
 .add-delete-btns-div .add-btn:hover{
-    box-shadow: 0px 0px 10px 10px lightgray;
+    box-shadow: 0px 0px 10px 10px rgb(177, 173, 173);
 }
 .add-delete-btns-div .delete-btn:hover{
-    box-shadow: 0px 0px 10px 10px lightgray;
+    box-shadow: 0px 00px 10px 10px rgb(177, 173, 173);
 }
 
 .add-delete-btns-div span{
@@ -156,7 +156,7 @@ body{
     overflow-x: hidden;
     padding-top: 10px;
     border-radius: 10px;
-    background-color: rgb(24, 23, 23);
+    background-color: rgb(32, 28, 28);
 }
 
 .list-div::-webkit-scrollbar{
@@ -176,8 +176,9 @@ body{
     border: 0;
     padding: 5px;
 }
-
-
+#total-tasks{
+    font-weight: 600;
+}
 /* Individual Tasks li */
 
 .individual-task-li{
